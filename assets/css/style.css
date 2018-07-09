@@ -1,0 +1,38 @@
+body {
+    background: url(../images/WaltDisneyPictures.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+    text-shadow: 2px 4px gray;
+    color: white;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 5px;
+    background: lightgray;
+    font-size: 15px;
+    /* font-weight: bold; */
+    /* border: solid 2px; */
+}
+
+#disneyButtons {
+    width: 800px;
+    float: left;
+    margin-left: 15px;
+}
+
+#form {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    float: left;
+    margin-left: 350px;
+    color: white;
+    /* position: relative; */
+}
