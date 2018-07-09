@@ -1,28 +1,42 @@
 body {
-    background: url(../images/WaltDisneyPictures.jpg);
+    background: url(../images/wallpaper2you_228207.jpg);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
 header {
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-size: 40px;
-    text-shadow: 2px 4px gray;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    font-weight: bold;
     color: white;
+    text-shadow: 2px 2px gray;
     padding: 20px;
     margin-bottom: 20px;
+    background: rgb(18, 63, 148); 
+    border-bottom: solid 10px darkgray;
+    border-style: double;
 }
 
 button {
     margin: 5px;
     background: lightgray;
-    font-size: 15px;
-    /* font-weight: bold; */
-    /* border: solid 2px; */
+    font-size: 18px;
+    color: white;
+    background: teal;
+    /* background: linear-gradient(rgb(8, 19, 39), lightgray, rgb(16, 70, 172));     */
+    font-weight: bold;
+    box-shadow: 2px 3px black;
+    border-radius: 5px;
 }
 
 #disneyButtons {
-    width: 800px;
+    width: 1000px;
+    float: left;
+    margin-left: 15px;
+}
+
+#disneyGifs {
+    width: 1000px;
     float: left;
     margin-left: 15px;
 }
@@ -30,9 +44,29 @@ button {
 #form {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
-    font-weight: bold;
-    float: left;
-    margin-left: 350px;
+    float: right;
+    margin: 0 20px;
     color: white;
     /* position: relative; */
+    background: url(../images/WaltDisneyPicturesCurrent.jpg);
+    background-size: cover;
+    background-position: center center; 
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    border: solid 10px darkgrey; 
+    border-style: outset;
 }
+
+#addFilm {
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px 20px 5px    20px;
+
+}
+
+#disney-input {
+    height: 20px;
+    font-size: 18px;
+} 
