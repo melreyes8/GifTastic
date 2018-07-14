@@ -6,18 +6,11 @@ var topics = [
     "The Parent Trap", "Who Framed Roger Rabit", "Cool Runnings", "Air Bud", "Pirates of the Caribbean"
 ]
 
-// Use a for loop to create a button for each topics
+// Used a for loop to create a button for each topic
 for (var i=0; i<topics.length; i++){
     var button = $('<button>').text(topics[i]);
     $('#disneyButtons').append(button);
-
 }
-
-// Used a for loop to create a button for each topic in the array
-// for (var index of topics){
-//     button = $('<button>').text(index);
-//     $('#disneyButtons').append(button);     
-// }
 
 // Add new buttons to the disneyButtons div when user submits Disney film name
 $('#addFilm').on('click', function(){
@@ -34,7 +27,7 @@ $('#addFilm').on('click', function(){
 // Event listener for disneyButtons
 $(document).on('click', '#disneyButtons button', function() {
 // Storing our giphy API URL for a random Disney film
-    var disney = $(this);
+    var disney = $(this).text();
     // empty the gif div
     $('#disneyGifs').empty();
     var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=AY5u6HCbUppUrpjGjjwBeSkfcXqf8dCw&q=' + disney + '&limit=10'; 
@@ -50,38 +43,23 @@ $(document).on('click', '#disneyButtons button', function() {
         console.log(response.data);
         var responseData = response.data;
 
+        // Constructing HTML containing the 10 gifs and ratings 
         for(var i=0; i < responseData.length; i++) {
-            var addGifDiv = $('<div>');
-            var p = $('<p>');
-            p.text("Rating: " + responseData[i].rating);
+            var addGifDiv = $('<div id="gifDivs">');
+            var rating = $('<p>');
+            rating.text("Rating: " + responseData[i].rating);
 
-        // Constructing HTML containing the 10 gifs and ratings
-
-        // Creating and storing a paragraph tag for the Rating
-        // var rating = $('<p>');    
-
-        // Creating and storing an image tag for the gif
-        var disneyGif = $('<img>');
-        
-        disneyGif.addClass('gifs');
-        disneyGif.attr('src', responseData[i].images.fixed_height_still.url);
-        disneyGif.attr('data-still', responseData[i].images.fixed_height_still.url);
-        disneyGif.attr('data-animate', responseData[i].images.fixed_height.url);
-        disneyGif.attr('data-state', 'still');
-        // rating.text('Rating: ' + responseData[i].rating);
-        addGifDiv.append(disneyGif);
-        addGifDiv.append(p);
-        addGifDiv.prependTo($('#disneyGifs'));
-
-        // Prepending the disneyGif to the disneyGifs div
-
-        // $("#disneyGifs").append(disneyGif, rating);
-
-      // Empty the contents of the disneyGifs div when another disneyButton is selected for 10 gifs to appear on page
-    //   $("#disneyGifs").empty();
-    //   $("#disneyGifs").append(disneyGif, p);             
-
-    }        
+            var disneyGif = $('<img>');
+            
+            disneyGif.addClass('gifs');
+            disneyGif.attr('src', responseData[i].images.fixed_height_still.url);
+            disneyGif.attr('data-still', responseData[i].images.fixed_height_still.url);
+            disneyGif.attr('data-animate', responseData[i].images.fixed_height.url);
+            disneyGif.attr('data-state', 'still');
+            addGifDiv.append(rating);
+            addGifDiv.append(disneyGif);
+            addGifDiv.prependTo('#disneyGifs');
+        }        
 
     $('.gifs').on('click', function() {
         // The attr jQuery method allows us to get or set the value of any attribute on our HTML element
@@ -97,5 +75,5 @@ $(document).on('click', '#disneyButtons button', function() {
           $(this).attr('data-state', 'still');
         }
       });
-    })
+    });
 });
